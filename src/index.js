@@ -47,6 +47,8 @@ const DateRangePicker = ({
   buttonTextStyle,
   presetButtons,
   open,
+  validateButtonStyle,
+  validateButtonText,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -82,6 +84,10 @@ const DateRangePicker = ({
       ...styles.monthButtons,
       ...monthButtonsStyle,
     },
+    validateButton: {
+      ...styles.validateButton,
+      ...validateButtonStyle
+    }
   };
 
   const _onOpen = () => {
@@ -365,6 +371,11 @@ const DateRangePicker = ({
               )}
               {weeks}
             </View>
+            <TouchableOpacity
+              style={mergedStyles.validateButton}
+              onPress={_onClose}>
+              <Text>{validateButtonText ?? "Validate"}</Text>
+            </TouchableOpacity>
             {presetButtons && (
               <View style={mergedStyles.buttonContainer}>
                 <Button
@@ -503,4 +514,13 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
+  validateButton:{
+    borderWidth:1,
+    borderColor: "#efefef",
+    alignItems:"center",
+    justifyContent:"center",
+    marginHorizontal:40,
+    marginVertical:20,
+    padding:12
+  }
 });
