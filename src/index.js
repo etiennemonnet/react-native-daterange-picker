@@ -49,6 +49,7 @@ const DateRangePicker = ({
   open,
   validateButtonStyle,
   validateButtonText,
+  validateButtonTextStyle
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -374,7 +375,7 @@ const DateRangePicker = ({
             <TouchableOpacity
               style={mergedStyles.validateButton}
               onPress={_onClose}>
-              <Text>{validateButtonText ?? "Validate"}</Text>
+              <Text style={validateButtonTextStyle}>{validateButtonText ?? "Validate"}</Text>
             </TouchableOpacity>
             {presetButtons && (
               <View style={mergedStyles.buttonContainer}>
